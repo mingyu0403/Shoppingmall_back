@@ -3,8 +3,11 @@ package kr.hs.dgsw.shoppingmall_back.Domain;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
@@ -41,5 +44,10 @@ public class User {
     // 이메일 주소
     @Column(unique = true)
     private String email;
+
+    @CreationTimestamp
+    private LocalDateTime created;
+    @UpdateTimestamp
+    private LocalDateTime updated;
 
 }

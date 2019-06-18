@@ -25,8 +25,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User findByAccount(String account) {
-        return this.userRepository.findByAccount(account).orElse(null);
+    public User findByAccountAndPassword(String account, String password) {
+        return this.userRepository.findByAccountAndPassword(account, password).orElse(null);
     }
 
     @Override

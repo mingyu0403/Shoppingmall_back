@@ -23,9 +23,9 @@ public class UserController {
         return this.userService.findById(id);
     }
 
-    @GetMapping("/loginUser/{account}")
-    public User loginUser(@PathVariable String account){
-        return this.userService.findByAccount(account);
+    @PostMapping("/loginUser")
+    public User loginUser(@RequestBody User user){
+        return this.userService.findByAccountAndPassword(user.getAccount(), user.getPassword());
     }
 
     @PostMapping("/addUser")
