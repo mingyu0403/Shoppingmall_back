@@ -1,0 +1,15 @@
+package kr.hs.dgsw.shoppingmall_back.Service;
+
+import kr.hs.dgsw.shoppingmall_back.Domain.User;
+
+import java.util.List;
+
+public interface UserService {
+
+    List<User> findAll();
+    User findById(Long userId);
+    User findByAccount(String account);
+    User addUser(User user);
+    User editUser(User user);
+    boolean deleteById(Long userId);
+}
