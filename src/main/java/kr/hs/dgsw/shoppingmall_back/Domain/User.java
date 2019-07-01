@@ -16,7 +16,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long _id;
 
     // 아이디
     @Column(nullable = false)
@@ -29,20 +29,15 @@ public class User {
     @Column(nullable = false)
     private String name;
     // 전화번호
-    @Column(unique = true)
     private String homeNumber;
     // 핸드폰
-    @Column(unique = true)
     private String phoneNumber;
 
     // 우편번호
-    @Column(unique = true)
     private String postCode;
     // 주소
-    @Column(unique = true)
     private String address;
     // 이메일 주소
-    @Column(unique = true)
     private String email;
 
     @CreationTimestamp

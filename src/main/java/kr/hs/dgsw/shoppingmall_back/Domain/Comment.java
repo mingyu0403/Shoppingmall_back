@@ -1,9 +1,9 @@
 package kr.hs.dgsw.shoppingmall_back.Domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,26 +11,23 @@ import java.time.LocalDateTime;
 @Entity
 @Data
 @NoArgsConstructor
-public class Order{
-
+public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long _id;
 
-    // 유저 아이디
     @Column(nullable = false)
-    private String userId;
-    // 제품 아이디
+    private Long productId;
+
     @Column(nullable = false)
-    private String productId;
-    // 구매 수량
+    private String userAccount;
+
     @Column(nullable = false)
-    private Long count;
+    private String content;
 
     @CreationTimestamp
+    @Column(updatable = false, nullable = false)
+    @JsonFormat(pattern = "yyyy/MM/dd HH:mm:ss")
     private LocalDateTime created;
-    @UpdateTimestamp
-    private LocalDateTime updated;
 
 }
-

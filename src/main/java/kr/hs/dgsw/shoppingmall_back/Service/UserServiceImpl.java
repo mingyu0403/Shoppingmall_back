@@ -25,6 +25,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findByAccount(String account) {
+        return this.userRepository.findByAccount(account).orElse(null);
+    }
+
+    @Override
     public User findByAccountAndPassword(String account, String password) {
         return this.userRepository.findByAccountAndPassword(account, password).orElse(null);
     }
@@ -40,7 +45,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User editUser(User user) {
-        return this.userRepository.findById(user.getId())
+        return this.userRepository.findById(user.get_id())
                 .map(u -> {
                     u.setAccount(Optional.ofNullable(user.getAccount()).orElse(u.getAccount()));
                     u.setPassword(Optional.ofNullable(user.getPassword()).orElse(u.getPassword()));
